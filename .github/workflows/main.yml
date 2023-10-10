@@ -24,6 +24,6 @@ jobs:
     - name: Deploy
       uses: aws-actions/aws-cloudformation-github-deploy@master
       with:
-        name: testingworkflow
+        name: testingworkflowNada
         template: template.yaml
         capabilities: CAPABILITY_NAMED_IAM
