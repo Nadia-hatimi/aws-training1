@@ -3,11 +3,11 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: "this is the workshop number 5"
 
 Resources:
-  nadawork5shop:
+  nadawork5:
     Type: AWS::S3::Bucket
     DeletionPolicy: Delete
     Properties:
-      BucketName: "nadawork5shop"
+      BucketName: "nadawork5"
 
 
   IAMRoleWorkshop:
@@ -36,8 +36,8 @@ Resources:
                   - "s3:ListBucket"
                   - "s3:DeleteObject"
                 Resource:
-                  - !Sub "arn:aws:s3:::${nadawork5shop}"
-                  - !Sub "arn:aws:s3:::${nadawork5shop}/*"
+                  - !Sub "arn:aws:s3:::${nadawork5}"
+                  - !Sub "arn:aws:s3:::${nadawork5}/*"
 
 
   WriteLambdaFunctionWorkshop:
@@ -52,7 +52,7 @@ Resources:
       Timeout: 60
       Environment:
         Variables:
-          BUCKET_NAME: !Ref nadawork5shop
+          BUCKET_NAME: !Ref nadawork5
       Code:
         ZipFile: |
           import os
@@ -91,7 +91,7 @@ Resources:
       Timeout: 60
       Environment:
         Variables:
-          BUCKET_NAME: !Ref nadawork5shop
+          BUCKET_NAME: !Ref nadawork5
       Code:
         ZipFile: |
           import os
